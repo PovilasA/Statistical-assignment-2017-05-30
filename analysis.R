@@ -21,6 +21,9 @@ print_number_of_NAs(model_data)
 # That is why we are not going to use those variables for modeling.
 to_remove = c("Variable_42","Variable_43","Variable_44")
 
+library(Amelia)
+missmap(model_data, main = "Missing values vs observed")
+
 
 # Find number of unique values for each variable of the dataset.
 # Without NAs
@@ -38,5 +41,12 @@ print_number_of_unique_values(model_data)
 # We remove variables that has only one unique value.
 to_remove = union(to_remove, c("country_id","product_id",
                                "Variable_3","Variable_5"))
+
+# Some date variables alse has more than 50% missing values.
+# Maybe those variables should be removed too.
+to_remove = union(to_remove, c("due_date","paid_date","first_status_day_date",
+                               "arrived_date", "first_status"))
+
+
 
 

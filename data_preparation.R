@@ -21,6 +21,7 @@ print_number_of_NAs(model_data)
 # That is why we are not going to use those variables for modeling.
 to_remove = c("Variable_42","Variable_43","Variable_44")
 
+# Plot to illustrate missing values
 library(Amelia)
 missmap(model_data, main = "Missing values vs observed")
 
@@ -46,6 +47,17 @@ to_remove = union(to_remove, c("country_id","product_id",
 # Maybe those variables should be removed too.
 to_remove = union(to_remove, c("due_date","paid_date","first_status_day_date",
                                "arrived_date", "first_status"))
+
+# customer_id is also not important for modeling.
+to_remove = union(to_remove, c("customer_id"))
+
+
+# Removing non-important variables.
+model_data1 = model_data[,setdiff(names(model_data), to_remove)]
+
+# Checking missing values once again.
+missmap(model_data1, main = "Missing values vs observed")
+print_number_of_NAs(model_data1)
 
 
 

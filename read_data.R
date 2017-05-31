@@ -24,7 +24,7 @@ data[["first_status"]] = paste(data[["first_status_day_date"]],
 data[["first_status_time_of_day"]] = paste('2017-06-01', 
                                            data[["first_status_time_of_day"]])
 
-for (name in names(Data)) {
+for (name in setdiff(names(data), "first_status")) {
   if (data_structure[[name]] %in% c('Ordinal','Categorical','Binary','ID')) {
     data[[name]] = as.factor(data[[name]])  
   } 

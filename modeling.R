@@ -47,4 +47,6 @@ auc <- auc@y.values[[1]]
 auc
 # AUC is equal to 0.67
 
-
+# Little analysis of prediction data (data which will be used for prediction).
+missmap(pred_data[selected_features], main = "Missing values vs observed")
+# All selected features have no missing value in prediction dataset.

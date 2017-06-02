@@ -50,3 +50,40 @@ auc
 # Little analysis of prediction data (data which will be used for prediction).
 missmap(pred_data[selected_features], main = "Missing values vs observed")
 # All selected features have no missing value in prediction dataset.
+
+
+
+## Ridge Regression
+library(glmnet)
+set.seed(10)
+
+# glmnet only accepts matrices as a data input.
+xfactors <- model.matrix(formula, data = train)[, -1]
+x <- as.matrix(data.frame(xfactors))
+
+# cv.glmnet makes k-fold cross-validation for glmnet, produces a plot, and 
+# results for different lambdas
+cv.ridge <- cv.glmnet(x, train[["Target"]], family="binomial")
+
+# Results
+plot(cv.ridge)
+
+# value of lambda that gives minimum mean cross-validated error.
+cv.ridge$lambda.min
+# Equals to 0.007. Since it is close to zero we may guess that it will not make
+# big impact to prediction.
+
+xfactors <- model.matrix(formula, data = test)[, -1]
+newx <- as.matrix(data.frame(xfactors))
+fitted.results = predict(cv.ridge, s=cv.ridge$lambda.min, newx, type="response")
+
+# Trying different cutoff probabilities
+for (cutoff in 1:19/20) {
+  fitted.results.binary <- ifelse(fitted.results > cutoff,1,0)
+  misClasificError <- mean(fitted.results.binary != test$Target)
+  print(paste(cutoff, 'Accuracy', 1-misClasificError))
+} 
+# We can see that 0.5 cutoff gives maximum accuracy which is 0.71.
+# It is only slightly better performance than simple Logistic regression.
+
+

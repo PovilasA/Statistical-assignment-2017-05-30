@@ -25,5 +25,11 @@ fitted.results = predict(cv.ridge, s=cv.ridge$lambda.min, newx, type="response")
 
 # Trying different cutoff probabilities
 print_accuracy_for_different_cutoff(fitted.results, test$Target)
-# We can see that 0.5 cutoff gives maximum accuracy which is 0.68.
+# We can see that 0.5 cutoff gives maximum accuracy which is 0.687.
 # It is slightly worse performance than simple Logistic regression.
+
+
+res = list()
+res[["model"]] = cv.lasso
+res[["accuracy"]] = 0.687
+RESULTS[["ridge_logistic_regression"]] = res

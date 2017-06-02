@@ -16,3 +16,8 @@ print_accuracy_for_different_cutoff(fitted.results, test$Target)
 
 ROC(model, test)
 # AUC is equal to 0.67
+
+res = list()
+res[["model"]] = model
+res[["accuracy"]] = 0.69
+RESULTS[["logistic_regression"]] = res

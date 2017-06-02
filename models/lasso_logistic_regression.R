@@ -10,7 +10,7 @@ cv.lasso <- cv.glmnet(x, train[["Target"]], family='binomial')
 # Results
 plot(cv.lasso)
 cv.lasso$lambda.min
-# Equals to 0.0032
+# Equals to 0.0026
 
 xfactors <- model.matrix(formula, data = test)[, -1]
 newx <- as.matrix(data.frame(xfactors))
@@ -21,3 +21,9 @@ fitted.results = predict(cv.lasso, s=cv.lasso$lambda.min, newx, type="response")
 print_accuracy_for_different_cutoff(fitted.results, test$Target)
 # We can see that 0.5 cutoff gives maximum accuracy which is 0.689.
 # It is only slightly better performance than simple Logistic regression.
+
+
+res = list()
+res[["model"]] = cv.lasso
+res[["accuracy"]] = 0.689
+RESULTS[["lasso_logistic_regression"]] = res

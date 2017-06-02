@@ -29,7 +29,7 @@ missmap(model_data, main = "Missing values vs observed")
 # Find number of unique values for each variable of the dataset.
 # Without NAs
 print_number_of_unique_values <- function(data) {
-  for (name in names(Data)) {
+  for (name in names(data)) {
     print(paste(
       length(unique(data[[name]][!is.na(data[[name]])])), 
       data_structure[[name]], name
@@ -51,13 +51,13 @@ to_remove = union(to_remove, c("due_date","paid_date","first_status_day_date",
 # customer_id is also not important for modeling.
 to_remove = union(to_remove, c("customer_id"))
 
-
 # Removing non-important variables.
 model_data1 = model_data[,setdiff(names(model_data), to_remove)]
 
 # Checking missing values once again.
 missmap(model_data1, main = "Missing values vs observed")
 print_number_of_NAs(model_data1)
+print_number_of_unique_values(model_data1)
 
 
 

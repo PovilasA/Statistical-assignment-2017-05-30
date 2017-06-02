@@ -24,12 +24,17 @@ anova(model, test="Chisq")
 
 
 fitted.results <- predict(model, newdata=test[selected_features], type='response')
+
+print_accuracy_for_different_cutoff <- function(results, target, n=20) {
+  for (cutoff in 1:(n-1)/n) {
+    fitted.results.binary <- ifelse(results > cutoff,1,0)
+    misClasificError <- mean(fitted.results.binary != target)
+    print(paste(cutoff, 'Accuracy', 1-misClasificError))
+  } 
+}
+
 # Trying different cutoff probabilities
-for (cutoff in 1:19/20) {
-  fitted.results.binary <- ifelse(fitted.results > cutoff,1,0)
-  misClasificError <- mean(fitted.results.binary != test$Target)
-  print(paste(cutoff, 'Accuracy', 1-misClasificError))
-} 
+print_accuracy_for_different_cutoff(fitted.results, test$Target)
 # We can see that 0.5 cutoff gives maximum accuracy which is 0.69
 
 
@@ -78,11 +83,7 @@ newx <- as.matrix(data.frame(xfactors))
 fitted.results = predict(cv.ridge, s=cv.ridge$lambda.min, newx, type="response")
 
 # Trying different cutoff probabilities
-for (cutoff in 1:19/20) {
-  fitted.results.binary <- ifelse(fitted.results > cutoff,1,0)
-  misClasificError <- mean(fitted.results.binary != test$Target)
-  print(paste(cutoff, 'Accuracy', 1-misClasificError))
-} 
+print_accuracy_for_different_cutoff(fitted.results, test$Target)
 # We can see that 0.5 cutoff gives maximum accuracy which is 0.71.
 # It is only slightly better performance than simple Logistic regression.
 

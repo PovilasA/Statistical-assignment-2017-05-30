@@ -11,3 +11,21 @@ test = model_data1[test_indices,]
 # 'selected_variables' (vector of selected variables) and 
 # 'formula'(formula with selected features used for modeling).
 source('boruta.R')
+
+
+# Logistic regression
+model <- glm(formula, family=binomial(link='logit'), data=train)
+
+# we run the anova() to analyze the table of deviance.
+anova(model, test="Chisq")
+# The difference between the null deviance and the residual deviance shows how our model is doing against the null model (a model with only the intercept). The wider this gap, the better.
+
+
+fitted.results <- predict(model, newdata=test[selected_features], type='response')
+# Trying different cutoff probabilities
+for (cutoff in 1:19/20) {
+  fitted.results.binary <- ifelse(fitted.results > cutoff,1,0)
+  misClasificError <- mean(fitted.results.binary != test$Target)
+  print(paste(cutoff, 'Accuracy', 1-misClasificError))
+} 
+# We can see that 0.5 cutoff gives maximum accuracy.

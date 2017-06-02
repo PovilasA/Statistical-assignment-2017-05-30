@@ -1,5 +1,5 @@
-data <- read.csv("Assignment_Data.csv", sep=";")
-data_structure = read.csv("data_structure.csv")
+data <- read.csv("data/Assignment_Data.csv", sep=";")
+data_structure = read.csv("data/data_structure.csv")
 
 # Different date variable has a different date structure.
 # Here we specify correct date format for each date variable.

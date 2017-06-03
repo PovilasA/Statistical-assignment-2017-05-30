@@ -24,6 +24,8 @@ RESULTS = list()
 source('models/logistic_regression.R')
 source('models/ridge_logistic_regression.R')
 source('models/lasso_logistic_regression.R')
+source('models/svm.R')
+
 
 
 

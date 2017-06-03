@@ -40,7 +40,7 @@ print_number_of_unique_values <- function(data) {
 print_number_of_unique_values(model_data)
 
 # We remove variables that has only one unique value.
-to_remove = union(to_remove, c("country_id","product_id",
+to_remove = union(to_remove, c("country_id","product_id", "application_id",
                                "Variable_3","Variable_5"))
 
 # Some date variables alse has more than 50% missing values.

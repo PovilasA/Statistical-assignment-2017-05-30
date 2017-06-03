@@ -16,7 +16,6 @@ source('boruta.R')
 missmap(pred_data[selected_features], main = "Missing values vs observed")
 # All selected features have no missing value in prediction dataset.
 
-
 # results for each model.
 RESULTS = list()
 
@@ -25,10 +24,4 @@ source('models/logistic_regression.R')
 source('models/ridge_logistic_regression.R')
 source('models/lasso_logistic_regression.R')
 source('models/svm.R')
-
-
-
-
-
-
-
+source('models/kmeans.R')

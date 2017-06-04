@@ -1,7 +1,5 @@
 # Kmeans
 
-library(cluster)
-
 # Our dataset includes number of categorical (or/and ordinal) features. That is
 # why we using Gower metric to calculate distance for kmeans algorithm.
 D =  daisy(model_data1[selected_features], metric='gower')

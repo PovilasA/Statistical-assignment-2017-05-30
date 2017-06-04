@@ -1,5 +1,4 @@
 # Support vector machine (SVM)
-library(e1071)
 
 # Selecting optimal tuning parameters (cost and gamma) for SVM.
 # This procedure takes a lot of time so it will be commented and values of 
@@ -16,7 +15,8 @@ library(e1071)
 cost = 4
 gamma = 4
 
-# Radial kernel was chosen for training SVm. It produced the best results
+# 'Radial' kernel was chosen for training SVm. It produces better performance 
+# comparing to other kernels.
 svm_model <- svm(Target ~ ., data=train[c(selected_features, "Target")],
                  kernel='radial', cost=4, gamma=4)
 summary(svm_model)

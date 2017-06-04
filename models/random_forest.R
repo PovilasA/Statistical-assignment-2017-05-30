@@ -1,6 +1,5 @@
 # Random Forest
 
-library(randomForest)
 x <- cbind(train[c(selected_features, "Target")])
 
 rf.fit <- randomForest(Target ~ ., x,ntree=500)

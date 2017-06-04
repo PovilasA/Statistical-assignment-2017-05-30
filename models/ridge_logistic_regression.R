@@ -1,6 +1,5 @@
 ## Ridge Logistic Regression
 
-library(glmnet)
 set.seed(100)
 
 # glmnet only accepts matrices as a data input.

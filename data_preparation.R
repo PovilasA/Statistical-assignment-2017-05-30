@@ -22,7 +22,6 @@ print_number_of_NAs(model_data)
 to_remove = c("Variable_42","Variable_43","Variable_44")
 
 # Plot to illustrate missing values
-library(Amelia)
 missmap(model_data, main = "Missing values vs observed")
 
 

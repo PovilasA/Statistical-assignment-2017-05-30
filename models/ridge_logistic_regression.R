@@ -29,6 +29,6 @@ print_accuracy_for_different_cutoff(fitted.results, test$Target)
 
 
 res = list()
-res[["model"]] = cv.lasso
+res[["model"]] = cv.ridge
 res[["accuracy"]] = 0.687
 RESULTS[["ridge_logistic_regression"]] = res

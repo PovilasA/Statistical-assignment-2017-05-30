@@ -38,6 +38,12 @@ is a wrapper for 5 main parts of this assignment:
   
 Open an empty R workspace file `assignment.RData` and run file `main.R`.
 
+## Private files
+
+This repository is stored in private Google Drive [folder](https://drive.google.com/drive/folders/0Bz42BOto0-g7Ny1IZlNmdi1UUU0). 
+All code files are available but data used for analysis is private. To reproduce analysis 
+you need to download data files from `data` directory which is stored [here](https://drive.google.com/drive/folders/0Bz42BOto0-g7UlFzaHp3MGNUNGc). 
+
 ## References
 
 Following links were used for analysis:

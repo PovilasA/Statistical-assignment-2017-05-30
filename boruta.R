@@ -1,8 +1,8 @@
 # Boruta is a feature selection procedure that uses Random Forest variable 
 # importance measure by default. This procedure depends on randomly generated 
 # numbers (that is why we use set.seed). Since procedure takes about 7 minutes
-# code is commented and list of selected variables which was got from boruta is
-# hardcoded to variable 'selected feature'.
+# code is commented and list of selected variables which were got from boruta is
+# entered manualy to variable 'selected feature'.
 
 # set.seed(1)
 # boruta.train <- Boruta(Target~., data = model_data1, doTrace = 2)
@@ -37,4 +37,5 @@ selected_features = c("Variable_7", "Variable_12", "Variable_13",
                       "Variable_27", "Variable_29", "Variable_35",
                       "Variable_37", "Variable_39")
 
+# Making formula variables that will be used for modeling.
 formula = as.formula(paste("Target ~ ", paste(selected_features, collapse=" + "), sep = ""))

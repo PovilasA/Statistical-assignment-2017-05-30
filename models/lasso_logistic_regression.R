@@ -20,7 +20,6 @@ fitted.results = predict(cv.lasso, s=cv.lasso$lambda.min, newx, type="response")
 # Trying different cutoff probabilities
 print_accuracy_for_different_cutoff(fitted.results, test$Target)
 # We can see that 0.5 cutoff gives maximum accuracy which is 0.689.
-# It is only slightly better performance than simple Logistic regression.
 
 
 res = list()

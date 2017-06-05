@@ -39,7 +39,7 @@ print_number_of_unique_values <- function(data) {
 print_number_of_unique_values(model_data)
 
 # We remove variables that has only one unique value.
-to_remove = union(to_remove, c("country_id","product_id", "application_id",
+to_remove = union(to_remove, c("country_id","product_id",
                                "Variable_3","Variable_5"))
 
 # Some date variables alse has more than 50% missing values.
@@ -47,8 +47,8 @@ to_remove = union(to_remove, c("country_id","product_id", "application_id",
 to_remove = union(to_remove, c("due_date","paid_date","first_status_day_date",
                                "arrived_date", "first_status"))
 
-# customer_id is also not important for modeling.
-to_remove = union(to_remove, c("customer_id"))
+# ids are also not important for modeling.
+to_remove = union(to_remove, c("customer_id","application_id"))
 
 # Removing non-important variables.
 model_data1 = model_data[,setdiff(names(model_data), to_remove)]
@@ -57,7 +57,3 @@ model_data1 = model_data[,setdiff(names(model_data), to_remove)]
 missmap(model_data1, main = "Missing values vs observed")
 print_number_of_NAs(model_data1)
 print_number_of_unique_values(model_data1)
-
-
-
-

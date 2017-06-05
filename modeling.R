@@ -16,7 +16,7 @@ source('boruta.R')
 missmap(pred_data[selected_features], main = "Missing values vs observed")
 # All selected features have no missing value in prediction dataset.
 
-# results for each model.
+# Results for all models.
 RESULTS = list()
 
 # This list is filled with results from different models

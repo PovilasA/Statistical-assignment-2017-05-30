@@ -1,7 +1,7 @@
 # This file is a wrapper of all files needed to make a prediction for target
-# variable.
+# variable. It loads different .R files that contains all analysis steps.
 
-# Installs and loads all packages needed for analysis
+# Install and load all packages needed for analysis
 source('install_packages.R')
 
 # Read data from the file and make some initial changes in the dataset.
@@ -18,7 +18,7 @@ source('model_evaluation.R')
 # it to RESULTS variable.
 source('modeling.R')
 
-# Returns results for all algorithms and makes a prediction for given dataset
+# Previews results for all algorithms and makes a prediction for given dataset
 # using best available model.
 source('prediction.R')
 

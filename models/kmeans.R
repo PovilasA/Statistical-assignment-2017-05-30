@@ -7,8 +7,8 @@ km_model = kmeans(D, 2, nstart = 20)
 
 summary(km_model)
 
-# Kmeans is unsupervised learning algorithm. It groups data to two segments (as)
-# we selected in parameters), but segments names ar "1" and "2" (not "1" and "0)
+# Kmeans is unsupervised learning algorithm. It groups data to two segments (as
+# we selected in parameters), but segments names ar "1" and "2" (not "1" and "0")
 # so we should try calculate two different performance metrics. Larger will be 
 # interpreted as algorithm performance metric.
 t = table(km_model$cluster-1, model_data[["Target"]]) 

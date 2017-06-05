@@ -1,8 +1,8 @@
 # Support vector machine (SVM)
 
 # Selecting optimal tuning parameters (cost and gamma) for SVM.
-# This procedure takes a lot of time so it will be commented and values of 
-# parameters entered manualy.
+# This procedure takes a lot of time so it will not be run every time
+# and values of parameters will be entered manualy.
 
 # tune.out<-tune(svm, Target ~.,data=train[c(selected_features, "Target")], 
 #                kernel="radial", ranges=list(cost=c(0.1,1,2,4,5,6,7,10), 
@@ -15,7 +15,7 @@
 cost = 4
 gamma = 4
 
-# 'Radial' kernel was chosen for training SVm. It produces better performance 
+# 'Radial' kernel was chosen for training SVM. It produces best performance 
 # comparing to other kernels.
 svm_model <- svm(Target ~ ., data=train[c(selected_features, "Target")],
                  kernel='radial', cost=4, gamma=4)

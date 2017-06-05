@@ -1,4 +1,6 @@
 data <- read.csv("data/Assignment_Data.csv", sep=";")
+
+# Taken from Description.doc file
 data_structure = read.csv("data/data_structure.csv")
 
 # Different date variable has a different date structure.
@@ -26,10 +28,11 @@ data[["first_status_time_of_day"]] = as.POSIXct(strptime(
                                       data[["first_status_time_of_day"]],
                                       "%m/%d/%Y %H:%M:%S"))
 
-# Fix one more time variables
+# Fix one more time variable
 data[["arrived_date"]] = as.POSIXct(strptime(data[["arrived_date"]],
                                              "%m/%d/%Y %H:%M"))
 
+# Convert data to correct format
 metrics = c("first_status","first_status_time_of_day","arrived_date")
 for (name in setdiff(names(data), metrics)) {
   if (data_structure[[name]] %in% c('Ordinal','Categorical','Binary','ID')) {

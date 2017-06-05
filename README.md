@@ -37,3 +37,18 @@ is a wrapper for 5 main parts of this assignment:
 ## Usage
   
 Open an empty R workspace file `assignment.RData` and run file `main.R`.
+
+## References
+
+Following links were used for analysis:
+
+- https://www.analyticsvidhya.com/blog/2015/08/common-machine-learning-algorithms/
+- https://www.analyticsvidhya.com/blog/2015/07/dimension-reduction-methods/
+- https://www.analyticsvidhya.com/blog/2016/03/select-important-variables-boruta-package/
+- https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/
+- http://ricardoscr.github.io/how-to-use-ridge-and-lasso-in-r.html
+- http://rischanlab.github.io/SVM.html
+- http://math.stanford.edu/~yuany/course/2015.fall/SVM_in_R.pdf
+- https://datascienceplus.com/k-means-clustering-in-r/
+- https://stackoverflow.com/questions/37646244/gower-and-cosine-distances-in-k-means-clustering
+- https://www.r-bloggers.com/naive-bayes-classification-in-r-part-2/ 
